@@ -40,7 +40,7 @@ It's the app that turns *"yeah maybe"* into *"I literally cannot afford to flake
 
 ## Live Demo
 
-🌐 **[showup-ai.vercel.app](https://showup-ai.vercel.app)** ← try it here
+🌐 **[showup-ai.vercel.app](https://showupai-nine.vercel.app/)** ← try it here
 
 > Uses a mock Solana wallet — no real SOL is spent. Every new user gets ◎ 10 SOL airdropped to play with.
 
