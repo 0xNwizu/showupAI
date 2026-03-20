@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-dark-bg text-gray-100 font-sans;
+    background: #0b0c0c;
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dark-border-light;
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(29, 112, 184, 0.35);
+    color: white;
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-brand bg-clip-text text-transparent;
+  }
+
+  .gradient-text-solana {
+    @apply bg-gradient-solana bg-clip-text text-transparent;
+  }
+
+  /* Glow effects */
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(29, 112, 184, 0.25);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px rgba(0, 168, 107, 0.25);
+  }
+
+  /* Animated gradient border */
+  .gradient-border {
+    background: linear-gradient(#0b0c0c, #0b0c0c) padding-box,
+                linear-gradient(135deg, #003078, #1d70b8) border-box;
+    border: 2px solid transparent;
+  }
+
+  /* Sol amount style */
+  .sol-amount {
+    @apply font-mono font-bold text-solana-green;
+  }
+  .sol-amount::before {
+    content: '◎ ';
+    opacity: 0.8;
+  }
+
+  /* Shimmer loading */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.04) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* Custom focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    --tw-ring-color: rgba(29, 112, 184, 0.5);
+    --tw-ring-offset-color: #0b0c0c;
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* Truncate utilities */
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* Sonner toast customization */
+[data-sonner-toaster] {
+  --normal-bg: theme('colors.dark.card');
+  --normal-border: theme('colors.dark.border');
+  --normal-text: theme('colors.white');
+}
